@@ -4,7 +4,7 @@ import type {
     Generations,
     Pokemon,
     ResourceAbility,
-    ResourceType, Spicy,
+    ResourceType, Specy,
     TypeInfos
 } from "../types/interfaces.ts";
 
@@ -74,7 +74,7 @@ export const fetchPokemonsPagination = async (listPokemons: string[], offset: nu
 
 export const fetchPokemonSpecies = async (id: number) => {
     const data = await fetch(`https://pokeapi.co/api/v2/pokemon-species/${id}`);
-    const result: Spicy = await data.json();
+    const result: Specy = await data.json();
     return result.evolution_chain.url.split("/").at(6)
 }
 

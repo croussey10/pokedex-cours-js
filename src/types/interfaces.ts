@@ -81,7 +81,7 @@ export interface Evolution {
     }
 }
 
-export interface Spicy {
+export interface Specy {
     evolution_chain: {
         url: string
     }
