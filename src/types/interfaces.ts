@@ -23,7 +23,7 @@ export interface ResourcePokemon {
     count: number;
 }
 
-export interface Type {
+export interface TypeInfos {
     id: number;
     name: string;
     pokemon: {
@@ -37,4 +37,52 @@ export interface ResourceType {
     results: {
         name: string
     }[]
+}
+
+export interface Generations {
+    name: string;
+    pokemon_species : {
+        name: string
+    }[]
+}
+
+export interface Abilities {
+    name: string;
+    pokemon: {
+        pokemon: {
+            name: string
+        }
+    }[]
+}
+
+export interface ResourceAbility {
+    results: {
+        name: string
+    }[]
+}
+
+export interface Evolution {
+    chain: {
+        species: {
+            name: string
+        }
+        evolves_to: {
+            species: {
+                name: string;
+                url: string
+            }
+            evolves_to: {
+                species: {
+                    name: string;
+                    url: string
+                }
+            }[]
+        }[]
+    }
+}
+
+export interface Spicy {
+    evolution_chain: {
+        url: string
+    }
 }

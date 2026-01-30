@@ -1,6 +1,6 @@
 import "../types/interfaces.ts"
 import type {ResourcePokemon} from "../types/interfaces.ts";
-import {fetchPokemonInfos} from "./api.ts";
+import {fetchPokemonEvolutions, fetchPokemonInfos} from "./api.ts";
 
 export async function maxPokemons() : Promise<number> {
     const response = await fetch (`https://pokeapi.co/api/v2/pokemon`);
@@ -11,7 +11,10 @@ export async function maxPokemons() : Promise<number> {
 export const limitMaxPokemons = await (maxPokemons());
 
 export async function afficherInfosPokemon(name: string) : Promise<void> {
+
     const data  = await fetchPokemonInfos(name);
+
+    const listPokemonsEvolutions = await fetchPokemonEvolutions(data!.id);
 
     let pokemonInfos = "";
 
@@ -33,6 +36,7 @@ export async function afficherInfosPokemon(name: string) : Promise<void> {
     <div>ID : ${data.id} Name : ${data.name}</div>
     <img id="img-pokemon" src="${data.sprites.front_default}" alt="${data.name}">
     <audio controls src="${data.cries.latest}"></audio>
+    <div></div>
     ${statsPokemon}
     `
 
