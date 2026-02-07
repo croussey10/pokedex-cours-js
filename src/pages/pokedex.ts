@@ -5,9 +5,7 @@ import {limitMaxPokemons} from "./pokemon.ts";
 import {
     fetchAllAbilities,
     fetchAllTypes,
-    fetchPokemonEvolutions,
-    fetchPokemonsPagination,
-    fetchPokemonSpecies
+    fetchPokemonsPagination
 } from "./api.ts";
 import {filterAll} from "./filter.ts";
 
@@ -188,7 +186,7 @@ export function initPokedex () {
                     <a href="?name=${pokemon?.name}">
                         <div>${pokemon?.name}</div>
                         <div>${pokemon?.id}</div>
-                        <img src="${pokemon?.sprites.front_default}" alt="sprite-${pokemon?.name}">
+                        <img src="${pokemon?.sprites.other["official-artwork"].front_default}" alt="sprite-${pokemon?.name}" width="175px">
                     </a>
                 </div>
             `

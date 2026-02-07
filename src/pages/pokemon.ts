@@ -68,10 +68,10 @@ export async function afficherInfosPokemon(name: string) : Promise<void> {
     for (const pokemon of listPokemonsEvolutions[0]) {
         let id = pokemonEvo0Sprites[i]
         i++
-        evo1HTML += `
+        evo0HTML += `
             <a id="${pokemon}" href="?name=${pokemon}">
                 ${pokemon}
-                <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png">
+                <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id}.png" width="175">
             </a>
         `
     }
@@ -82,7 +82,7 @@ export async function afficherInfosPokemon(name: string) : Promise<void> {
         evo1HTML += `
             <a id="${pokemon}" href="?name=${pokemon}">
                 ${pokemon}
-                <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png">
+                <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id}.png" width="175">
             </a>
         `
     }
@@ -94,7 +94,7 @@ export async function afficherInfosPokemon(name: string) : Promise<void> {
         evo2HTML += `
             <a id="${pokemon}" href="?name=${pokemon}">
                 ${pokemon}
-                <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png"> 
+                <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id}.png" width="175"> 
             </a>
         `
     }
@@ -115,12 +115,23 @@ export async function afficherInfosPokemon(name: string) : Promise<void> {
 
     let pokemonPage = document.getElementById("infos-pokemon");
 
+    const typesHTML = data.types.map(item => {
+        const part = item.type.url.split("/");
+        const typeId = part.at(-2)
+        return `
+        <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/types/generation-ix/scarlet-violet/${typeId}.png" width="175">
+        `
+    })
+
     pokemonInfos += `
     <div>ID : ${data.id} Name : ${data.name}</div>
-    <img id="img-pokemon" src="${data.sprites.front_default}" alt="${data.name}">
+    <img id="img-pokemon" src="${data.sprites.other["official-artwork"].front_default}" alt="${data.name}" width="175">
     <audio controls src="${data.cries.latest}"></audio>
     <div>
         ${statsPokemon}
+    </div>
+    <div>
+        ${typesHTML}
     </div>
     <div id="evo-0">
         ${evo0HTML}

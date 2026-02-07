@@ -9,10 +9,21 @@ export interface Pokemon {
     }[];
     sprites: {
         front_default: string;
+        other: {
+            "official-artwork": {
+                front_default: string
+            }
+        }
     };
     cries: {
         latest: string;
     }
+    types: {
+        type: {
+            name: string;
+            url: string
+        }
+    }[]
 }
 
 export interface ResourcePokemon {
