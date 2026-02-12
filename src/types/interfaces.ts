@@ -34,9 +34,18 @@ export interface ResourcePokemon {
     count: number;
 }
 
+// --- MODIFICATION ICI POUR LES FAIBLESSES ---
+export interface TypeRelations {
+    double_damage_from: {
+        name: string;
+        url: string;
+    }[];
+}
+
 export interface TypeInfos {
     id: number;
     name: string;
+    damage_relations: TypeRelations; // Ajout des relations de dégâts
     pokemon: {
         pokemon: {
             name: string
@@ -96,4 +105,20 @@ export interface Specy {
     evolution_chain: {
         url: string
     }
+}
+
+// --- NOUVELLES INTERFACES POUR LA TEAM ---
+
+export interface TeamPokemon {
+    id: number;
+    name: string;
+    sprite: string;
+    types: string[];
+    weaknesses: string[];
+}
+
+export interface Team {
+    id: string;
+    name: string;
+    pokemons: TeamPokemon[];
 }
