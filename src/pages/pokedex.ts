@@ -154,7 +154,7 @@ const refreshTeamsDisplay = () => {
 
 export const pokedexPage = `
     <div class="pokedex-container">
-        <h1 class="pokedex-title">GrrPah Pokedex</h1>
+        <h1 class="pokedex-title">Pokedex</h1>
         
         <div class="team-manager">
             <div class="team-header-actions">
