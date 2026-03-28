@@ -90,7 +90,7 @@ const next = namePokemon ? await getNextPokemon(namePokemon, limitMaxPokemons) :
 export const fichePokemonPage = `
     <div class="pokemon-container">
         <div class="nav-header">
-            <a href="/public" class="btn-home">Home</a>
+            <a href="/pokedex-cours-js/" class="btn-home">Home</a>
             <div class="nav-arrows">
                 ${prev ? `<a href="?name=${prev}" class="btn-nav">Précédent</a>` : ""}
                 ${next ? `<a href="?name=${next}" class="btn-nav">Suivant</a>` : ""}
